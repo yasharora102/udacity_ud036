@@ -15,6 +15,12 @@ def check_profanity(text_to_check):
 	connection = urllib.urlopen("http://www.wdylike.appspot.com/?q=shot"+text_to_check)
 	result = connection.read()
 	
-	print('\nProfantiy =',result)
+	
+	if 'true' in result:
+		print("\nProfanity Alert !!!")
+	elif "false" in result:
+		print("\nThis Document is Clean !!! ")
+	else:
+		print("\nDocument can't be read !!!")
 
 read_text()
